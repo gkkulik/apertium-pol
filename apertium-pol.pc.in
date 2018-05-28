@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=@libdir@
+dir=@libdir@/apertium/apertium-pol
+srcdir=@datarootdir@/apertium/apertium-pol
+
+Name: apertium-pol
+Description: Finite-state morphological transducer and constraint grammar for Polish 
+Version: @VERSION@
+

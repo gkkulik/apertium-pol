@@ -1,0 +1,79 @@
+DELIMITERS = "<.>" ;
+LIST Case = (n s) (n p) ;
+LIST NOUN = n;
+LIST ADJ = adj;
+LIST ADV = adv;
+LIST VERB = vblex;
+LIST MIEC = vbhaver;
+LIST BYC = vbser;
+LIST MOC = vaux;
+LIST DET = det;
+LIST PRN = prn;
+LIST PREP = pr;
+SECTION
+
+#1
+REMOVE (n) OR (v) IF (1 (n s)) ;
+SELECT $$Case IF (1 (cnjcoo) LINK 1C $$Case) ;
+
+#2
+REMOVE VERB IF
+        (0 VERB)
+        (0 PRN)
+        (1 VERB) ;
+
+#3
+REMOVE VERB IF
+        (0 VERB)
+        (0 PRN)
+        (1 MIEC) ;
+
+#4
+REMOVE VERB IF
+        (0 VERB)
+        (0 PRN)
+        (1 BYC) ;
+
+#5
+REMOVE VERB IF
+        (0 VERB)
+        (0 PRN)
+        (1 MOC) ;
+
+#6
+REMOVE NOUN IF
+        (0 NOUN)
+        (0 MIEC)
+        (1 NOUN) ;
+
+#7
+REMOVE NOUN IF
+        (0 NOUN)
+        (0 MIEC)
+        (1 PRN) ;
+
+#8
+REMOVE NOUN IF
+        (0 NOUN)
+        (0 MIEC)
+        (1 PREP) ;
+
+#9
+REMOVE NOUN IF
+        (0 NOUN)
+        (0 MIEC)
+        (1 ADJ) ;
+
+#10
+REMOVE NOUN IF
+        (0 NOUN)
+        (0 MIEC)
+        (1 ADV) ;
+
+# Resources:
+# http://visl.sdu.dk/cg3.html
+# http://groups.google.com/group/constraint-grammar
+# http://kevindonnelly.org.uk/2010/05/constraint-grammar-tutorial/
+# http://wiki.apertium.org/wiki/Constraint_Grammar
+# http://wiki.apertium.org/wiki/Apertium_and_Constraint_Grammar
+
